@@ -14,7 +14,7 @@ encoded_id = getEncodedID_or_Landing();
 
 // Request the expense types from the Python backend to populate the dropdown menu
 var expenseTypeDropdown = document.getElementById("expenseType");
-fetch('https://expense-tracker-aytr.onrender.com/get_expense_types', {
+fetch('https://main-py-server.onrender.com/get_expense_types', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function getBudgetEntries() {
     const dataGrid = document.getElementById('dataGrid');
-    fetch('https://expense-tracker-aytr.onrender.com/get_budget_targets', {
+    fetch('https://main-py-server.onrender.com/get_budget_targets', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ document.getElementById("confirmBudgetButton").addEventListener("click", functio
 // amount or add a new entry depending on if one already exists.
 function saveBudgetToDatabase(expenseType, newBudgetAmount) {  
       
-    fetch('https://expense-tracker-aytr.onrender.com/save_budget', {
+    fetch('https://main-py-server.onrender.com/save_budget', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -112,6 +112,6 @@ function getEncodedID_or_Landing() {
             return value;
         }
     }
-    window.location.href = 'https://expense-tracker-aytr.onrender.com';
+    window.location.href = 'https://landing.expense-tracker-demo.site/';
 }
 
